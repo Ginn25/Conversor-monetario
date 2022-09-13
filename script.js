@@ -2,28 +2,18 @@ const currencyAccepted = {
     'Real brasileiro': 'BRL',
     'Dólar americano': 'USD',
     'Iene japonês': 'JPY',
-    'Libra esterlina': 'GBP'
+    'Libra esterlina': 'GBP',
+    "Euro": 'EUR',
 }
 
 listCurrency()
 
 function listCurrency(){
     for(let currency in currencyAccepted){
-        let accepted = `<option>${currency}</option>`
+        let option = `<option>${currency}</option>`
 
-        document.querySelector('#entry_select').innerHTML += accepted
-        document.querySelector('#out_select').innerHTML += accepted
-    }
-}
-
-let selects = document.querySelectorAll('select')
-selects.forEach(element => element.addEventListener('change',handleSelect)) 
-
-function handleSelect({ target }){
-    if(target.id == '#entry_select'){
-        handleInformation(document.querySelector('#out_input'))
-    }else{
-        handleInformation(document.querySelector('#entry_input'))
+        document.querySelector('#entry_select').innerHTML += option
+        document.querySelector('#out_select').innerHTML += option
     }
 }
 
@@ -34,7 +24,14 @@ inputs.forEach(element => {
     element.addEventListener('keydown', handleKeydown)
 })
 
+let selects = document.querySelectorAll('select')
+selects.forEach(element => element.addEventListener('change',handleSelect)) 
+
+function handleSelect(){ handleInformation(inputs[0]) }
+
 function handleKeydown(event){ if(event.key == 'Enter') handleInformation(event) }
+
+function currencyType(currency){ return currencyAccepted[currency] }
 
 function handleInformation(event){
     let target = event.target || event
@@ -48,11 +45,6 @@ function handleInformation(event){
 
     target.value = parseFloat(target.value).toFixed(2)
 
-    if(currencyEntry === currencyOut){
-        document.querySelector('#out_input').value = target.value
-        return
-    }
-
     if(target.id == inputId){
         inputId = 'entry_input'
         url += `${currencyOut}-${currencyEntry}`
@@ -61,7 +53,12 @@ function handleInformation(event){
         url += `${currencyEntry}-${currencyOut}`
         currencyName = currencyEntry + currencyOut
     }
-
+    
+    if(currencyEntry === currencyOut){
+        document.querySelector(`#${inputId}`).value = target.value
+        return
+    }
+    
     getResults({
         target,
         url,
@@ -78,10 +75,6 @@ function converter(params){
     let inputId = params.inputId
 
     document.getElementById(inputId).value = (targetValue * currencyValue).toFixed(2)
-}
-    
-function currencyType(currency){
-    return currencyAccepted[currency]
 }
 
 function getResults(params) {
