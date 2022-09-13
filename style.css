@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@500&family=Noto+Sans:wght@400;700&display=swap');
+
+body {
+    font-family: 'Kanit', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #28315e;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 480px;
+    height: 550px;
+    border: 3px solid #1b234b;
+    border-radius: 10px;
+    background-color: #344079;
+    box-shadow: 3px 3px 20px 5px #1b234b;
+    color: #040e3d
+}
+
+.card h1 {
+    font-size: 45px;
+    margin: 0;
+    text-shadow: 2px 2px 10px #6773a5;
+}
+
+.card p {
+    font-size: 30px;
+    margin: 0;
+}
+
+.label_description {
+    text-align: center;
+    width: 100%;
+    font-size: 25px;
+    margin: 0px;
+}
+
+.card img{
+    width: 350px;
+    height: 200px;
+    border: 3px solid #1b234b;
+    border-radius: 10px;
+    background-color: #2d3664;
+    box-shadow: 3px 3px 15px 5px #1b234b;
+}
+
+.card__div {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.card__div p {
+    font-size: 25px;
+    margin-top: 25px;
+}
+
+.card__div--label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card__div--label input {
+    width: 180px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 3px 3px 20px 5px #1b234b;
+    background-color: #2d3664;
+    text-align: center;
+    font-size: 25px;
+    color: #b7c2f0;
+    outline: none;
+}
+
+.card__div--label select {
+    border: none;
+    border-radius: 10px;
+    width: 150px;
+    height: 35px;
+    margin-bottom: 35px;
+    text-align: center;
+    background-color:#2d3664;
+    box-shadow: 3px 3px 20px 3px #1b234b;
+    color: #b7c2f0;
+    outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+  
+input[type=number] {
+    -moz-appearance: textfield;
+}
