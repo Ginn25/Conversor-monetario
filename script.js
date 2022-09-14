@@ -78,7 +78,7 @@ function converter(params){
 }
 
 function getResults(params) {
-    fetch(`${params.url}`)
+    fetch(params.url)
     .then(currency => {
         return currency.json();
     }).then((result)=>{
