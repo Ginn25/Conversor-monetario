@@ -111,3 +111,42 @@ input::-webkit-inner-spin-button {
 input[type=number] {
     -moz-appearance: textfield;
 }
+
+
+@media only screen and (max-height: 550px ) {
+
+    .card {
+        height: 420px;
+    }
+
+    .card h1 {
+        font-size: 70px;
+    }
+
+    .card img {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .card {
+        width: 90vw;
+    }
+
+    .card img {
+        display: none;
+    }
+
+    .card__div {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card__div p {
+        margin: 10px 0 10px;
+    }
+
+    .card__div--label select{
+        margin-bottom: 30px;
+    }
+}
